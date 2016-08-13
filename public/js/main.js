@@ -20422,6 +20422,7 @@ process.umask = function() { return 0; };
 
 },{}],172:[function(require,module,exports){
 var React = require('react');
+var MainCardList = require('./MainCardList.jsx');
 
 var MainCard = React.createClass({
     displayName: 'MainCard',
@@ -20429,12 +20430,13 @@ var MainCard = React.createClass({
 
     render: function () {
         var panelBodyStyle = {
-            height: '60',
-            backgroundColor: '#34495E'
+            height: '60px',
+            backgroundColor: '#34495E',
+            color: 'white'
         };
 
         var panelHeadingStyle = {
-            height: '160',
+            height: '160px',
             backgroundColor: this.props.backgroundColor
         };
 
@@ -20444,8 +20446,12 @@ var MainCard = React.createClass({
             React.createElement(
                 'div',
                 { className: 'panel panel-default' },
-                React.createElement('div', { style: panelHeadingStyle, 'class': 'panel-heading' }),
-                React.createElement('div', { style: panelBodyStyle, 'class': 'panel-body' })
+                React.createElement('div', { style: panelHeadingStyle, className: 'panel-heading' }),
+                React.createElement(
+                    'div',
+                    { style: panelBodyStyle, className: 'panel-body' },
+                    React.createElement(MainCardList, null)
+                )
             )
         );
     }
@@ -20453,7 +20459,9 @@ var MainCard = React.createClass({
 
 module.exports = MainCard;
 
-},{"react":170}],173:[function(require,module,exports){
+},{"./MainCardList.jsx":173,"react":170}],173:[function(require,module,exports){
+
+},{}],174:[function(require,module,exports){
 var React = require('react');
 
 var WhiteCard = React.createClass({
@@ -20500,7 +20508,7 @@ var WhiteCard = React.createClass({
 
 module.exports = WhiteCard;
 
-},{"react":170}],174:[function(require,module,exports){
+},{"react":170}],175:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var WhiteCard = require('./components/WhiteCard.jsx');
@@ -20512,4 +20520,4 @@ ReactDOM.render(React.createElement(WhiteCard, { title: '$ 13865', description: 
 ReactDOM.render(React.createElement(MainCard, { backgroundColor: '#22A7F0' }), document.getElementById('main-content1'));
 ReactDOM.render(React.createElement(MainCard, { backgroundColor: '#BF55EC' }), document.getElementById('main-content2'));
 
-},{"./components/MainCard.jsx":172,"./components/WhiteCard.jsx":173,"react":170,"react-dom":1}]},{},[174]);
+},{"./components/MainCard.jsx":172,"./components/WhiteCard.jsx":174,"react":170,"react-dom":1}]},{},[175]);
