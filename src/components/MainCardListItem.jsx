@@ -4,16 +4,18 @@ var MainCardListItem = React.createClass({
 
     render: function(){
         var h3Style = {
-            margin: '0'
+            marginTop: 0,
+            marginBottom: 0
         };
 
         var pStyle = {
-            margin: '0'
+            color: 'silver',
+            marginBottom: 0
         };
         return (
-            <div className="col-sm-4">
-                <h3 className="h3Style">{this.props.statistique}</h3>
-                <p className="pStyle">{this.props.description}</p>
+            <div className="col-xs-4 col-sm-4">
+                <h3 style={h3Style}>{this.props.statistique}</h3>
+                <p style={pStyle}>{this.props.description}</p>
             </div>
         );
     }

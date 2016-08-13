@@ -20422,7 +20422,7 @@ process.umask = function() { return 0; };
 
 },{}],172:[function(require,module,exports){
 var React = require('react');
-var MainCardList = require('./MainCardList.jsx');
+var MainCardListItem = require('./MainCardListItem.jsx');
 
 var MainCard = React.createClass({
     displayName: 'MainCard',
@@ -20430,9 +20430,11 @@ var MainCard = React.createClass({
 
     render: function () {
         var panelBodyStyle = {
-            height: '60px',
+            height: '80px',
             backgroundColor: '#34495E',
-            color: 'white'
+            color: 'white',
+            padding: 20,
+            textAlign: 'center'
         };
 
         var panelHeadingStyle = {
@@ -20450,7 +20452,9 @@ var MainCard = React.createClass({
                 React.createElement(
                     'div',
                     { style: panelBodyStyle, className: 'panel-body' },
-                    React.createElement(MainCardList, null)
+                    React.createElement(MainCardListItem, { statistique: '15080', description: 'Shot Views' }),
+                    React.createElement(MainCardListItem, { statistique: '12000', description: 'Likes' }),
+                    React.createElement(MainCardListItem, { statistique: '5100', description: 'Comments' })
                 )
             )
         );
@@ -20459,9 +20463,43 @@ var MainCard = React.createClass({
 
 module.exports = MainCard;
 
-},{"./MainCardList.jsx":173,"react":170}],173:[function(require,module,exports){
+},{"./MainCardListItem.jsx":173,"react":170}],173:[function(require,module,exports){
+var React = require('react');
 
-},{}],174:[function(require,module,exports){
+var MainCardListItem = React.createClass({
+    displayName: 'MainCardListItem',
+
+
+    render: function () {
+        var h3Style = {
+            marginTop: 0,
+            marginBottom: 0
+        };
+
+        var pStyle = {
+            color: 'silver',
+            marginBottom: 0
+        };
+        return React.createElement(
+            'div',
+            { className: 'col-xs-4 col-sm-4' },
+            React.createElement(
+                'h3',
+                { style: h3Style },
+                this.props.statistique
+            ),
+            React.createElement(
+                'p',
+                { style: pStyle },
+                this.props.description
+            )
+        );
+    }
+});
+
+module.exports = MainCardListItem;
+
+},{"react":170}],174:[function(require,module,exports){
 var React = require('react');
 
 var WhiteCard = React.createClass({
