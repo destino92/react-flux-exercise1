@@ -20501,6 +20501,58 @@ module.exports = MainCardListItem;
 
 },{"react":170}],174:[function(require,module,exports){
 var React = require('react');
+var SideListItem = require('./SideListItem.jsx');
+
+var SideList = React.createClass({
+    displayName: 'SideList',
+
+    render: function () {
+        return React.createElement(
+            'ul',
+            null,
+            React.createElement(SideListItem, { key: '1', title: 'New visitors', stat: '1.5K' }),
+            React.createElement(SideListItem, { key: '2', title: 'Bounce Rate', stat: '50%' }),
+            React.createElement(SideListItem, { key: '3', title: 'Searchs', stat: '28%' }),
+            React.createElement(SideListItem, { key: '4', title: 'Traffic', stat: '140.5 kb' })
+        );
+    }
+});
+
+module.exports = SideList;
+
+},{"./SideListItem.jsx":175,"react":170}],175:[function(require,module,exports){
+var React = require('react');
+
+var SideListItem = React.createClass({
+    displayName: "SideListItem",
+
+    render: function () {
+        return React.createElement(
+            "li",
+            { className: "col-sm-4 panel panel-default" },
+            React.createElement(
+                "div",
+                { className: "panel-heading" },
+                React.createElement(
+                    "p",
+                    null,
+                    this.props.title
+                ),
+                React.createElement(
+                    "h3",
+                    null,
+                    this.props.stat
+                )
+            ),
+            React.createElement("div", { className: "panel-body" })
+        );
+    }
+});
+
+module.exports = SideListItem;
+
+},{"react":170}],176:[function(require,module,exports){
+var React = require('react');
 
 var WhiteCard = React.createClass({
     displayName: 'WhiteCard',
@@ -20546,16 +20598,18 @@ var WhiteCard = React.createClass({
 
 module.exports = WhiteCard;
 
-},{"react":170}],175:[function(require,module,exports){
+},{"react":170}],177:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var WhiteCard = require('./components/WhiteCard.jsx');
 var MainCard = require('./components/MainCard.jsx');
+var SideList = require('./components/SideList.jsx');
 
 ReactDOM.render(React.createElement(WhiteCard, { title: '20', description: 'New followers added this month' }), document.getElementById('new-followers'));
 ReactDOM.render(React.createElement(WhiteCard, { title: '$ 1250', description: 'Average Monthly Income' }), document.getElementById('monthly-income'));
 ReactDOM.render(React.createElement(WhiteCard, { title: '$ 13865', description: 'Yearly Income Goal' }), document.getElementById('yearly-income'));
 ReactDOM.render(React.createElement(MainCard, { backgroundColor: '#22A7F0' }), document.getElementById('main-content1'));
 ReactDOM.render(React.createElement(MainCard, { backgroundColor: '#BF55EC' }), document.getElementById('main-content2'));
+ReactDOM.render(React.createElement(SideList, null), document.getElementById('aside'));
 
-},{"./components/MainCard.jsx":172,"./components/WhiteCard.jsx":174,"react":170,"react-dom":1}]},{},[175]);
+},{"./components/MainCard.jsx":172,"./components/SideList.jsx":174,"./components/WhiteCard.jsx":176,"react":170,"react-dom":1}]},{},[177]);
