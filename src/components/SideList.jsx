@@ -3,8 +3,12 @@ var SideListItem = require('./SideListItem.jsx');
 
 var SideList = React.createClass({
     render: function() {
+        var listStyle = {
+            listStyle: 'none'
+        };
+
         return (
-            <ul>
+            <ul style={listStyle}>
                 <SideListItem key="1" title="New visitors" stat="1.5K" />
                 <SideListItem key="2" title="Bounce Rate" stat="50%" />
                 <SideListItem key="3" title="Searchs" stat="28%" />

@@ -20507,9 +20507,13 @@ var SideList = React.createClass({
     displayName: 'SideList',
 
     render: function () {
+        var listStyle = {
+            listStyle: 'none'
+        };
+
         return React.createElement(
             'ul',
-            null,
+            { style: listStyle },
             React.createElement(SideListItem, { key: '1', title: 'New visitors', stat: '1.5K' }),
             React.createElement(SideListItem, { key: '2', title: 'Bounce Rate', stat: '50%' }),
             React.createElement(SideListItem, { key: '3', title: 'Searchs', stat: '28%' }),
