@@ -20513,11 +20513,11 @@ var SideList = React.createClass({
 
         return React.createElement(
             'ul',
-            { style: listStyle },
-            React.createElement(SideListItem, { key: '1', title: 'New visitors', stat: '1.5K' }),
-            React.createElement(SideListItem, { key: '2', title: 'Bounce Rate', stat: '50%' }),
-            React.createElement(SideListItem, { key: '3', title: 'Searchs', stat: '28%' }),
-            React.createElement(SideListItem, { key: '4', title: 'Traffic', stat: '140.5 kb' })
+            { style: listStyle, className: 'col-sm-4' },
+            React.createElement(SideListItem, { key: '1', title: 'New visitors', stat: '1.5K', color: '#22A7F0' }),
+            React.createElement(SideListItem, { key: '2', title: 'Bounce Rate', stat: '50%', color: '#9B59B6' }),
+            React.createElement(SideListItem, { key: '3', title: 'Searchs', stat: '28%', color: '#F22613' }),
+            React.createElement(SideListItem, { key: '4', title: 'Traffic', stat: '140.5 kb', color: '#2ECC71' })
         );
     }
 });
@@ -20528,27 +20528,46 @@ module.exports = SideList;
 var React = require('react');
 
 var SideListItem = React.createClass({
-    displayName: "SideListItem",
+    displayName: 'SideListItem',
 
     render: function () {
+        var listItemHeading = {
+            height: 70,
+            backgroundColor: this.props.color,
+            color: 'white'
+        };
+
+        var listItemP = {
+            margin: 0
+        };
+
+        var listItemH3 = {
+            fontWeight: 'bold',
+            margin: 0
+        };
+
+        var listItemBody = {
+            height: 60
+        };
+
         return React.createElement(
-            "li",
-            { className: "col-sm-4 panel panel-default" },
+            'li',
+            { className: 'panel panel-default' },
             React.createElement(
-                "div",
-                { className: "panel-heading" },
+                'div',
+                { style: listItemHeading, className: 'panel-heading' },
                 React.createElement(
-                    "p",
-                    null,
+                    'p',
+                    { style: listItemP },
                     this.props.title
                 ),
                 React.createElement(
-                    "h3",
-                    null,
+                    'h3',
+                    { style: listItemH3 },
                     this.props.stat
                 )
             ),
-            React.createElement("div", { className: "panel-body" })
+            React.createElement('div', { style: listItemBody, className: 'panel-body' })
         );
     }
 });

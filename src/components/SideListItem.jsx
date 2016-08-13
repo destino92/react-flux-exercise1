@@ -2,13 +2,32 @@ var React = require('react');
 
 var SideListItem = React.createClass({
     render: function(){
+        var listItemHeading = {
+            height: 70,
+            backgroundColor: this.props.color,
+            color: 'white'
+        };
+
+        var listItemP = {
+            margin: 0
+        };
+
+        var listItemH3 = {
+            fontWeight: 'bold',
+            margin: 0
+        };
+
+        var listItemBody = {
+            height: 60
+        };
+
         return (
-            <li className="col-sm-4 panel panel-default">
-                <div className="panel-heading">
-                    <p>{this.props.title}</p>
-                    <h3>{this.props.stat}</h3>
+            <li className="panel panel-default">
+                <div style={listItemHeading} className="panel-heading">
+                    <p style={listItemP}>{this.props.title}</p>
+                    <h3 style={listItemH3}>{this.props.stat}</h3>
                 </div>
-                <div className="panel-body">
+                <div style={listItemBody} className="panel-body">
                 </div>
             </li>
         );
